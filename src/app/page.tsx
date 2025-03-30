@@ -34,15 +34,52 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <div className="relative flex flex-col place-items-center">
+    <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      <div className="max-w-4xl mx-auto px-4 py-12">
         {/* Header */}
-        <div className="flex flex-col items-center gap-4">
-          <h1 className="text-4xl font-bold mb-8">{currentPage}</h1>
-        </div>
+        <header className="text-center mb-16">
+          <h1 className="text-5xl font-bold text-gray-900 mb-4">Param Measurer</h1>
+          <p className="text-gray-600 text-lg">Customize and measure your parameters with ease</p>
+        </header>
+
+        {/* Navigation */}
+        <nav className="flex justify-center gap-4 mb-12">
+          <button
+            onClick={() => setCurrentPage(PageType.Home)}
+            className={`px-4 py-2 rounded-full transition-all ${
+              currentPage === PageType.Home
+                ? 'bg-blue-600 text-white shadow-lg'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+            }`}
+          >
+            Home
+          </button>
+          <button
+            onClick={() => setCurrentPage(PageType.ColorCustomizer)}
+            className={`px-4 py-2 rounded-full transition-all ${
+              currentPage === PageType.ColorCustomizer
+                ? 'bg-blue-600 text-white shadow-lg'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+            }`}
+          >
+            Color
+          </button>
+          <button
+            onClick={() => setCurrentPage(PageType.PitchCustomizer)}
+            className={`px-4 py-2 rounded-full transition-all ${
+              currentPage === PageType.PitchCustomizer
+                ? 'bg-blue-600 text-white shadow-lg'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+            }`}
+          >
+            Pitch
+          </button>
+        </nav>
 
         {/* Body */}
-        {renderBody()}
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          {renderBody()}
+        </div>
       </div>
     </main>
   );
