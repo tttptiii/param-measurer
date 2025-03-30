@@ -12,15 +12,19 @@ export class HomeBody extends React.Component<HomeBodyProps> {
     const { setCurrentPage } = this.props;
 
     return (
-      <div className="flex flex-col gap-4 items-center">
-        <NavigationButton
-          setCurrentPage={setCurrentPage}
-          page={PageType.Hello}
-        ></NavigationButton>
-        <NavigationButton
-          setCurrentPage={setCurrentPage}
-          page={PageType.World}
-        ></NavigationButton>
+      <div>
+        <div className="flex flex-col gap-4 items-center">
+          <NavigationButton
+            setCurrentPage={setCurrentPage}
+            page={PageType.ColorCustomizer}
+          ></NavigationButton>
+        </div>
+        <div className="flex flex-col gap-4 items-center">
+          <NavigationButton
+            setCurrentPage={setCurrentPage}
+            page={PageType.PitchCustomizer}
+          ></NavigationButton>
+        </div>
       </div>
     );
   }
